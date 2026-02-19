@@ -2,24 +2,13 @@ import { motion } from 'motion/react';
 import { AlertCircle, CreditCard, Sparkles, MessageSquare } from 'lucide-react';
 import { Header } from './components/Header';
 import { CherryBlossomEffect } from './components/CherryBlossomEffect';
-import backgroundImage from 'figma:asset/9df11588ba1922bd0a80532ee30e6349703c8689.png';
+import { ParallaxBackground } from './components/ParallaxBackground';
 
 export default function App() {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Japanese Background */}
-      <div 
-        className="fixed inset-0 z-0"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        {/* Subtle overlay to enhance readability without changing colors */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-transparent to-slate-900/30" />
-      </div>
+      {/* Japanese Background with Parallax */}
+      <ParallaxBackground />
 
       {/* Cherry Blossom Petals Animation */}
       <CherryBlossomEffect />
@@ -29,7 +18,7 @@ export default function App() {
         <Header />
 
         <main className="container mx-auto px-6 pt-28 pb-12">
-          {/* Subscription Alert */}
+          {/* Subscription Alert - Redesigned to match tech brand */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,27 +26,30 @@ export default function App() {
             className="mb-8"
           >
             <div className="relative rounded-2xl overflow-hidden group">
-              {/* Glass background with subtle color */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-900/15 via-red-900/15 to-orange-900/15 backdrop-blur-xl" />
+              {/* Cool tech-themed glass background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-950/20 via-indigo-950/25 to-blue-950/20 backdrop-blur-md" />
               
-              {/* Border */}
-              <div className="absolute inset-0 rounded-2xl border border-orange-200/20" />
+              {/* Stronger border for definition */}
+              <div className="absolute inset-0 rounded-2xl border border-blue-400/30" />
+              
+              {/* Subtle tech glow */}
+              <div className="absolute inset-0 rounded-2xl shadow-lg shadow-blue-500/5" />
               
               {/* Content */}
               <div className="relative flex items-center justify-between p-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm">
-                    <AlertCircle className="w-6 h-6 text-orange-200" />
+                  <div className="p-3 rounded-xl bg-blue-500/15 backdrop-blur-sm border border-blue-400/20">
+                    <AlertCircle className="w-6 h-6 text-blue-300" />
                   </div>
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-1">Subscription Required</h3>
-                    <p className="text-white/70 text-sm">Activate your subscription to access all features.</p>
+                    <p className="text-blue-200/70 text-sm">Activate your subscription to access all features.</p>
                   </div>
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white font-medium transition-all"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 text-white font-medium transition-all"
                 >
                   <CreditCard className="w-5 h-5" />
                   Go to Billing
@@ -73,30 +65,30 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="relative"
           >
-            {/* Subtle glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-blue-500/10 rounded-3xl blur-2xl" />
+            {/* Stronger outer glow for separation */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
             
             {/* Main card */}
             <div className="relative rounded-3xl overflow-hidden">
-              {/* Glass background - subtle and natural */}
-              <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-3xl" />
+              {/* Glass background - reduced opacity, medium blur */}
+              <div className="absolute inset-0 bg-slate-900/25 backdrop-blur-md" />
               
-              {/* Elegant border */}
-              <div className="absolute inset-0 rounded-3xl border border-white/20" />
+              {/* Stronger, crisper border - the hard anchor */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-blue-400/40 shadow-2xl shadow-blue-900/30" />
               
-              {/* Top accent bar (subtle like traditional Japanese lacquerware) */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+              {/* Top accent bar - tech themed */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
               
               {/* Decorative corners with traditional Japanese pattern */}
               <div className="absolute top-4 left-4 w-24 h-24 opacity-10">
-                <svg viewBox="0 0 100 100" className="text-white">
+                <svg viewBox="0 0 100 100" className="text-blue-300">
                   <circle cx="0" cy="0" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
                   <circle cx="0" cy="0" r="30" fill="none" stroke="currentColor" strokeWidth="1" />
                   <circle cx="0" cy="0" r="20" fill="none" stroke="currentColor" strokeWidth="1" />
                 </svg>
               </div>
               <div className="absolute top-4 right-4 w-24 h-24 opacity-10">
-                <svg viewBox="0 0 100 100" className="text-white">
+                <svg viewBox="0 0 100 100" className="text-blue-300">
                   <circle cx="100" cy="0" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
                   <circle cx="100" cy="0" r="30" fill="none" stroke="currentColor" strokeWidth="1" />
                   <circle cx="100" cy="0" r="20" fill="none" stroke="currentColor" strokeWidth="1" />
@@ -105,7 +97,7 @@ export default function App() {
               
               {/* Content */}
               <div className="relative px-16 py-24">
-                {/* Icon with floating animation */}
+                {/* Icon with floating animation - sharper shadow */}
                 <motion.div
                   animate={{ 
                     y: [0, -8, 0],
@@ -118,11 +110,11 @@ export default function App() {
                   className="flex justify-center mb-8"
                 >
                   <div className="relative">
-                    {/* Soft glow */}
-                    <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-2xl scale-150" />
+                    {/* Cooler glow */}
+                    <div className="absolute inset-0 bg-blue-400/30 rounded-full blur-3xl scale-150" />
                     
-                    {/* Icon container */}
-                    <div className="relative p-8 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/20">
+                    {/* Icon container - stronger border for anchor */}
+                    <div className="relative p-8 rounded-full bg-white/10 backdrop-blur-xl border-2 border-blue-300/30 shadow-2xl shadow-blue-900/40">
                       <Sparkles className="w-16 h-16 text-blue-100" strokeWidth={1.5} />
                     </div>
                   </div>
@@ -135,10 +127,10 @@ export default function App() {
                   transition={{ delay: 0.4, duration: 0.6 }}
                   className="text-center mb-12"
                 >
-                  <h2 className="text-5xl font-bold text-white mb-4 tracking-wide drop-shadow-lg">
+                  <h2 className="text-5xl font-bold text-white mb-4 tracking-wide drop-shadow-2xl">
                     No applications yet
                   </h2>
-                  <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-blue-100/70 text-lg max-w-2xl mx-auto leading-relaxed">
                     Start your first application to unlock personalized timelines,<br />
                     AI planning, and shared mobile progress.
                   </p>
@@ -154,10 +146,13 @@ export default function App() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative px-8 py-4 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20"
+                    className="group relative px-8 py-4 rounded-2xl overflow-hidden shadow-xl shadow-blue-600/30"
                   >
-                    {/* Gradient background inspired by Japanese indigo dye */}
+                    {/* Gradient background - tech indigo */}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600" />
+                    
+                    {/* Sharper border for definition */}
+                    <div className="absolute inset-0 rounded-2xl border border-blue-300/20" />
                     
                     {/* Shine effect */}
                     <motion.div
@@ -179,8 +174,8 @@ export default function App() {
                     whileTap={{ scale: 0.98 }}
                     className="group relative px-8 py-4 rounded-2xl overflow-hidden"
                   >
-                    {/* Glass background */}
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20" />
+                    {/* Glass background with stronger border */}
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-xl border-2 border-blue-300/25" />
                     
                     {/* Hover glow */}
                     <motion.div
@@ -201,7 +196,7 @@ export default function App() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
-                  className="text-center mt-8 text-white/50 text-sm"
+                  className="text-center mt-8 text-blue-200/50 text-sm"
                 >
                   Takes only 3-5 minutes to complete
                 </motion.p>

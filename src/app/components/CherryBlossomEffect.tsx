@@ -73,7 +73,7 @@ export function CherryBlossomEffect() {
   const [petals, setPetals] = useState<number[]>([]);
 
   useEffect(() => {
-    setPetals(Array.from({ length: 15 }, (_, i) => i));
+    setPetals(Array.from({ length: 8 }, (_, i) => i));
   }, []);
 
   return (
